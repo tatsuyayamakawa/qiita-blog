@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config";
-
-const { title } = siteConfig;
+import { Button } from "@/components/ui/button";
+import { ModeToggle } from "@/components/mode-toggle";
 
 export function Header() {
   return (
@@ -10,11 +9,11 @@ export function Header() {
       <div className="container mx-auto py-4 px-4 flex justify-between items-center">
         <div className="flex items-center gap-4">
           <Link href="/" className="text-xl font-bold">
-            {title}
+            {siteConfig.title}
           </Link>
         </div>
         <nav>
-          <ul className="flex space-x-4">
+          <ul className="flex items-center space-x-4">
             <li>
               <Button asChild variant="ghost">
                 <Link href="/about">プロフィール</Link>
@@ -24,6 +23,9 @@ export function Header() {
               <Button asChild variant="ghost">
                 <Link href="/contact">お問い合わせ</Link>
               </Button>
+            </li>
+            <li>
+              <ModeToggle />
             </li>
           </ul>
         </nav>
